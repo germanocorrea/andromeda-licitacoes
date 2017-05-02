@@ -1,5 +1,10 @@
 <h1>Licitações Cadastradas</h1>
 
+<?php echo $this->Html->link('Adicionar Licitação', array(
+    'controller' => 'licitations',
+    'action' => 'add'
+));?>
+
 <table>
     <thead>
         <tr>
