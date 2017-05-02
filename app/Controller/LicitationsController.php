@@ -42,6 +42,17 @@ class LicitationsController extends AppController
         }
     }
 
+    public function delete($id)
+    {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        if ($this->Licitation->delete($id)) {
+            $this->Flash->success('A licitação nº ' . $id . ' foi deletada.');
+            $this->redirect(array('action' => 'index'));
+        }
+    }
+
     public function add()
     {
         if ($this->request->is('post'))

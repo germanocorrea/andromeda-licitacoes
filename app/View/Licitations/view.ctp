@@ -14,4 +14,9 @@
             'action' => 'edit',
             $licitation['Licitation']['id']
         ));?></li>
+    <li><?php echo $this->Form->postLink(
+        'Deletar',
+        array('action' => 'delete', $licitation['Licitation']['id']),
+        array('confirm' => 'Você tem certeza?')
+    ); ?></li>
 </ul>
