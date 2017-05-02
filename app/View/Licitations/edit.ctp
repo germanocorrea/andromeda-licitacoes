@@ -22,8 +22,10 @@ echo $this->Form->input('end_date', array(
 echo $this->Form->input('state', array(
     'type' => 'select',
     'options' => array(
-        'FINALIZADO' => 'FINALIZADO',
+        'CRIADA' => 'CRIADA',
         'ABERTO' => 'ABERTO',
+        'FINALIZADA' => 'FINALIZADA',
+        'HOMOLOGADA' => 'HOMOLOGADA'
     )
 ));
 

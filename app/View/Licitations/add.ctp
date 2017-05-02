@@ -17,7 +17,7 @@ echo $this->Form->input('end_date', array(
 
 echo $this->Form->input('state', array(
     'type' => 'hidden',
-    'value' => 'ABERTO'
+    'value' => 'CRIADA'
 ));
 
 echo $this->Form->end('Salvar');
