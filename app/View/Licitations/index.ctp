@@ -5,6 +5,7 @@
     'action' => 'add'
 ));?>
 
+<?php if (isset($licitations)): ?>
 <table>
     <thead>
         <tr>
@@ -29,3 +30,4 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<?php endif; ?>

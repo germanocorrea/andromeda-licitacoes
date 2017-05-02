@@ -8,7 +8,11 @@ class LicitationsController extends AppController
     public function index()
     {
 //        List all licitations
-        $this->set('licitations', $this->Licitation->find('all'));
+        $licitations = $this->Licitation->find('all');
+        if ($licitations == null)
+            $this->Flash->default('Não há licitações cadastradas');
+        else
+            $this->set('licitations', $licitations);
     }
 
     public function search()
