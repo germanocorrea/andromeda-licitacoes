@@ -19,7 +19,14 @@ echo $this->Html->link('Adicionar Item', array(
     <tbody>
         <?php foreach ($items as $item): ?>
             <tr>
-                <td><?php echo $item['LicitationItem']['name']; ?></td>
+                <td><?php echo $this->Html->link(
+                        $item['LicitationItem']['name'],
+                        array(
+                            'action' => 'view',
+                            $licitation_id,
+                            $item['LicitationItem']['id']
+                        )
+                    ); ?></td>
                 <td><?php echo $item['LicitationItem']['quantity']; ?></td>
                 <td><?php echo $item['LicitationItem']['description']; ?></td>
             </tr>
