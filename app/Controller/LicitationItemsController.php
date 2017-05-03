@@ -12,7 +12,19 @@ class LicitationItemsController extends AppController
     public $components = array('Flash');
 
     public function view($licitation_id, $id)
-    {}
+    {
+        if ($id == null || $licitation_id == null) $this->redirect(array('action' => 'all'));
+        else
+        {
+            if ($item = $this->LicitationItem->findById($id))
+            {
+                $this->set('item', $item);
+
+                $this->set('licitation', $this->licitationModel($licitation_id));
+            }
+
+        }
+    }
 
     public function edit($licitation_id, $id)
     {}
@@ -47,5 +59,11 @@ class LicitationItemsController extends AppController
             $this->set('items', $items);
 
         $this->set('licitation_id', $licitation_id);
+    }
+
+    private function licitationModel($licitation_id)
+    {
+        $this->loadModel('Licitation');
+        return $this->Licitation->findById($licitation_id);
     }
 }
