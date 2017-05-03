@@ -14,9 +14,9 @@ class LicitationItemsController extends AppController
     public function edit($licitation_id, $id)
     {}
 
-    public function add()
+    public function add($licitation_id)
     {}
 
-    public function all()
+    public function all($licitation_id)
     {}
 }
