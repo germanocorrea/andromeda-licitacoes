@@ -16,4 +16,13 @@ echo $this->Html->link('Adicionar Item', array(
             <th>Descrição</th>
         </tr>
     </thead>
+    <tbody>
+        <?php foreach ($items as $item): ?>
+            <tr>
+                <td><?php echo $item['LicitationItem']['name']; ?></td>
+                <td><?php echo $item['LicitationItem']['quantity']; ?></td>
+                <td><?php echo $item['LicitationItem']['description']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
 </table>
