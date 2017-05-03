@@ -7,7 +7,9 @@ echo $this->Form->input('id', array(
     'type' => 'hidden'
 ));
 
-echo $this->Form->input('name');
+echo $this->Form->input('name', array(
+        'label' => 'Nome'
+));
 
 echo $this->Form->input('open_date', array(
     'label' => 'Data de Abertura',
@@ -17,6 +19,10 @@ echo $this->Form->input('open_date', array(
 echo $this->Form->input('end_date', array(
     'label' => 'Data de Encerramento',
     'dateFormat' => 'DMY'
+));
+
+echo $this->Form->input('state', array(
+    'type' => 'hidden'
 ));
 
 // TODO: licitação abre automaticamente no dia informado
