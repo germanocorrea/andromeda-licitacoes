@@ -19,15 +19,18 @@ echo $this->Form->input('end_date', array(
     'dateFormat' => 'DMY'
 ));
 
-echo $this->Form->input('state', array(
-    'type' => 'select',
-    'options' => array(
-        'CRIADA' => 'CRIADA',
-        'ABERTO' => 'ABERTO',
-        'FINALIZADA' => 'FINALIZADA',
-        'HOMOLOGADA' => 'HOMOLOGADA'
-    )
-));
+// TODO: licitação abre automaticamente no dia informado
+// TODO: licitação finaliza automaticamente na data informada
+// TODO: licitação homologa automaticamente qnd proposta é escolhida
+//echo $this->Form->input('state', array(
+//    'type' => 'select',
+//    'options' => array(
+//        'CRIADA' => 'CRIADA',
+//        'ABERTO' => 'ABERTO',
+//        'FINALIZADA' => 'FINALIZADA',
+//        'HOMOLOGADA' => 'HOMOLOGADA'
+//    )
+//));
 
 echo $this->Form->end('Salvar');
 ?>
