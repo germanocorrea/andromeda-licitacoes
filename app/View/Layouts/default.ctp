@@ -35,10 +35,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link('Andrômeda Licitações', array(
-			        'controller' => 'licitations',
-                    'action' => 'index'
-                ));?></h1>
+			<h1><?php echo $this->Html->link('Andrômeda Licitações', '/');?></h1>
 		</div>
 		<div id="content">
 
