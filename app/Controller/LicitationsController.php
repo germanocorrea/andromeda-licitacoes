@@ -2,12 +2,11 @@
 
 class LicitationsController extends AppController
 {
-    public $helpers = array('Html', 'Form', 'Flash');
+    public $helpers = array('Html', 'Form', 'Flash', 'Time');
     public $components = array('Flash');
 
     public function index()
     {
-//        List all licitations
         $licitations = $this->Licitation->find('all');
         if ($licitations == null)
             $this->Flash->default('Não há licitações cadastradas');
@@ -75,5 +74,7 @@ class LicitationsController extends AppController
     }
 
     public function compare($id)
-    {}
+    {
+        // TODO: controladora de propostas
+    }
 }
