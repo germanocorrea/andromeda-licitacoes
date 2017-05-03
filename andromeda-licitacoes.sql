@@ -11,6 +11,7 @@ CREATE TABLE licitations (
 CREATE TABLE licitation_items (
   id int NOT NULL AUTO_INCREMENT,
   licitation_id int NOT NULL,
+  name VARCHAR(255) NOT NULL,
   quantity int NOT NULL,
   description varchar(255) NOT NULL,
 
@@ -21,12 +22,16 @@ CREATE TABLE proposals (
   id INT NOT NULL AUTO_INCREMENT,
   licitation_id INT NOT NULL,
 
+#   fornecedor ID
+  user_id INT NOT NULL,
+
   PRIMARY KEY (id)
 );
 
 CREATE TABLE proposal_items (
   id INT NOT NULL AUTO_INCREMENT,
   unity_value FLOAT NOT NULL,
+  licitation_item_id INT NOT NULL,
   proposal_id INT NOT NULL,
 
   PRIMARY KEY (id)
