@@ -13,7 +13,7 @@ CREATE TABLE licitation_items (
   licitation_id int NOT NULL,
   name VARCHAR(255) NOT NULL,
   quantity int NOT NULL,
-  description varchar(255) NOT NULL,
+  description text NOT NULL,
 
   PRIMARY KEY (id)
 );
