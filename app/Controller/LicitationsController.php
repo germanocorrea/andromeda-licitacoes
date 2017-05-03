@@ -68,7 +68,8 @@ class LicitationsController extends AppController
             }
             else
             {
-                $this->Flash->success('Alguma coisa deu muito errado :/');
+                foreach ($this->Licitation->validationErrors as $error)
+                    $this->Flash->default($error[0]);
             }
         }
     }
