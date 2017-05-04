@@ -44,7 +44,7 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   address  VARCHAR(255),
-  type VARCHAR(255) NOT NULL,
+  role VARCHAR(255) NOT NULL,
 
   PRIMARY KEY (id)
 );

@@ -31,5 +31,18 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $components = array('DebugKit.Toolbar');
+    public $components = array(
+//        TODO: remover flash de outras controladoras
+        'DebugKit.Toolbar',
+        'Flash',
+        'Auth' => array(
+            'loginRedirect' => array('controller' => 'licitations', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'authenticate' => array(
+                'Form' => array(
+                    'fields' => array('username' => 'cpf_cnpj')
+                )
+            )
+        )
+    );
 }
