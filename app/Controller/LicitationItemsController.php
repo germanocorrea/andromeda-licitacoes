@@ -11,7 +11,7 @@ class LicitationItemsController extends AppController
     public $helpers = array('Html', 'Form', 'Flash', 'Time');
     public $components = array('Flash');
 
-    public function view($licitation_id, $id)
+    public function view($licitation_id = null, $id = null)
     {
         if ($id == null || $licitation_id == null) $this->redirect(array('action' => 'all'));
         else
@@ -27,7 +27,21 @@ class LicitationItemsController extends AppController
     }
 
     public function edit($licitation_id, $id)
-    {}
+    {
+        $this->LicitationItem->id = $id;
+        if ($this->request->is('get'))
+        {
+            $this->request->data = $this->LicitationItem->findById($id);
+        }
+        else
+        {
+            if ($this->Licitation->save($this->request->data))
+            {
+                $this->Flash->success('O item da licitação foi salvo');
+                $this->redirect(array('action' => 'all', $licitation_id));
+            }
+        }
+    }
 
     public function add($licitation_id)
     {
@@ -35,7 +49,7 @@ class LicitationItemsController extends AppController
         {
             if ($this->LicitationItem->save($this->request->data))
             {
-                $this->Flash->success('O item da licitação foi salvo');
+                $this->Flash->success('O item da licitação foi adicionado');
                 $this->redirect(array('action' => 'all', $licitation_id));
             }
             else
@@ -59,6 +73,17 @@ class LicitationItemsController extends AppController
             $this->set('items', $items);
 
         $this->set('licitation_id', $licitation_id);
+    }
+
+    public function delete($licitation_id, $id)
+    {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        if ($this->LicitationItem->delete($id)) {
+            $this->Flash->success('O item nº ' . $id . ' foi deletado da licitação.');
+            $this->redirect(array('action' => 'all', $licitation_id));
+        }
     }
 
     private function licitationModel($licitation_id)
