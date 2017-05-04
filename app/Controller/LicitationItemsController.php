@@ -29,6 +29,7 @@ class LicitationItemsController extends AppController
     public function edit($licitation_id, $id)
     {
         $this->LicitationItem->id = $id;
+
         if ($this->request->is('get'))
         {
             $this->request->data = $this->LicitationItem->findById($id);

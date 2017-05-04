@@ -2,18 +2,16 @@
 
 <ul>
     <li><?php echo $this->Html->link('Editar Item', array(
-            'controller' => 'licitationitems',
             'action' => 'edit',
             $licitation['Licitation']['id'],
             $item['LicitationItem']['id']
         ));
         ?></li>
-    <li><?php echo $this->Html->link('Deletar Item', array(
-            'controller' => 'licitationitems',
+    <li><?php echo $this->Form->postLink('Deletar Item', array(
             'action' => 'delete',
             $licitation['Licitation']['id'],
             $item['LicitationItem']['id']
-        ));
+        ), array('confirm' => 'Você tem certeza?'));
         ?></li>
     <li>Licitação: <?php echo $this->Html->link($licitation['Licitation']['name'], array(
             'controller' => 'licitations',
