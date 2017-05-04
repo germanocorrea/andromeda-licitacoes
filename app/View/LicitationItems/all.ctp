@@ -2,7 +2,7 @@
 
 <?php
 echo $this->Html->link('Adicionar Item', array(
-    'controller' => 'licitationitems',
+    'controller' => 'licitation_items',
     'action' => 'add',
     $licitation_id
 ));
@@ -22,6 +22,7 @@ echo $this->Html->link('Adicionar Item', array(
                 <td><?php echo $this->Html->link(
                         $item['LicitationItem']['name'],
                         array(
+                            'controller' => 'licitation_items',
                             'action' => 'view',
                             $licitation_id,
                             $item['LicitationItem']['id']

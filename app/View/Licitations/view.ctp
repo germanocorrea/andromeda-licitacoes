@@ -5,7 +5,7 @@
     <li>Data de Fechamento: <?php echo $licitation['Licitation']['end_date']; ?></li>
     <li>Estado: <?php echo $licitation['Licitation']['state']; ?></li>
     <li><?php echo $this->Html->link('Visualizar Itens da Licitação', array(
-        'controller' => 'licitationitems',
+        'controller' => 'licitation_items',
         'action' => 'all',
         $licitation['Licitation']['id'],
 

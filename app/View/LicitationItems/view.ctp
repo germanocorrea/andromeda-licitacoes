@@ -2,12 +2,14 @@
 
 <ul>
     <li><?php echo $this->Html->link('Editar Item', array(
+            'controller' => 'licitation_items',
             'action' => 'edit',
             $licitation['Licitation']['id'],
             $item['LicitationItem']['id']
         ));
         ?></li>
     <li><?php echo $this->Form->postLink('Deletar Item', array(
+            'controller' => 'licitation_items',
             'action' => 'delete',
             $licitation['Licitation']['id'],
             $item['LicitationItem']['id']
