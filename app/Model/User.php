@@ -44,7 +44,7 @@ class User extends AppModel
         ),
         'role' => array(
             'valid' => array(
-                'rule' => array('inList', array('gerente', 'funcionário', 'fornecedor')),
+                'rule' => array('inList', array('gerente', 'funcionario', 'fornecedor')),
                 'message' => 'Papel de usuário inválido',
                 'allowEmpty' => false
             )

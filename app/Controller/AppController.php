@@ -42,7 +42,8 @@ class AppController extends Controller {
                 'Form' => array(
                     'fields' => array('username' => 'cpf_cnpj')
                 )
-            )
+            ),
+//            'authorize' => 'Controller'
         )
     );
 }

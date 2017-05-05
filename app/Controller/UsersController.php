@@ -10,7 +10,7 @@ class UsersController extends AppController
 {
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('logout', 'add');
+        $this->Auth->allow('logout', 'add'); // TODO: remover o add depois que houver user admin padrão
     }
 
     public function login() {
