@@ -14,11 +14,12 @@ class UsersController extends AppController
     }
 
     public function login() {
-        if ($this->Auth->login()) {
-            $this->redirect($this->Auth->redirect());
-        } else {
-            $this->Flash->error(__('Nome de usuário ou senha inválidos'));
-        }
+        if ($this->request->isPost())
+            if ($this->Auth->login()) {
+                $this->redirect($this->Auth->redirect());
+            } else {
+                $this->Flash->error(__('Nome de usuário ou senha inválidos'));
+            }
     }
 
     public function logout() {
