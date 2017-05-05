@@ -11,22 +11,20 @@ class LicitationItemsController extends AppController
     public $helpers = array('Html', 'Form', 'Flash', 'Time');
     public $components = array('Flash');
 
-    public function view($licitation_id = null, $id = null)
+    public function view($id = null)
     {
-        if ($id == null || $licitation_id == null) $this->redirect(array('action' => 'all'));
+        if ($id == null) $this->redirect(array('action' => 'all'));
         else
         {
             if ($item = $this->LicitationItem->findById($id))
             {
                 $this->set('item', $item);
-
-                $this->set('licitation', $this->licitationModel($licitation_id));
             }
 
         }
     }
 
-    public function edit($licitation_id, $id)
+    public function edit($id)
     {
         $this->LicitationItem->id = $id;
 
@@ -36,10 +34,11 @@ class LicitationItemsController extends AppController
         }
         else
         {
-            if ($this->Licitation->save($this->request->data))
+            if ($this->LicitationItem->save($this->request->data))
             {
+                $item = $this->LicitationItem->findById($id);
                 $this->Flash->success('O item da licitação foi salvo');
-                $this->redirect(array('action' => 'all', $licitation_id));
+                $this->redirect(array('action' => 'all', $item['Licitation']['id']));
             }
         }
     }
@@ -55,7 +54,7 @@ class LicitationItemsController extends AppController
             }
             else
             {
-                foreach ($this->Licitation->validationErrors as $error)
+                foreach ($this->LicitationItem->validationErrors as $error)
                     $this->Flash->default($error[0]);
             }
         }
@@ -85,11 +84,5 @@ class LicitationItemsController extends AppController
             $this->Flash->success('O item nº ' . $id . ' foi deletado da licitação.');
             $this->redirect(array('action' => 'all', $licitation_id));
         }
-    }
-
-    private function licitationModel($licitation_id)
-    {
-        $this->loadModel('Licitation');
-        return $this->Licitation->findById($licitation_id);
     }
 }

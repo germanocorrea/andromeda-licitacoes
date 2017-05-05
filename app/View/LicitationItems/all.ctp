@@ -24,7 +24,6 @@ echo $this->Html->link('Adicionar Item', array(
                         array(
                             'controller' => 'licitation_items',
                             'action' => 'view',
-                            $licitation_id,
                             $item['LicitationItem']['id']
                         )
                     ); ?></td>

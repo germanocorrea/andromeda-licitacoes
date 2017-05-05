@@ -9,4 +9,5 @@
 class LicitationItem extends AppModel
 {
 //    TODO: validações de itens
+    public $belongsTo = 'Licitation';
 }

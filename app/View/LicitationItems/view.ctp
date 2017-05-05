@@ -1,24 +1,23 @@
-<h1><?php echo $item['LicitationItem']['name']; ?> - <?php echo $licitation['Licitation']['name']; ?></h1>
+<h1><?php echo $item['LicitationItem']['name']; ?> - <?php echo $item['Licitation']['name']; ?></h1>
 
 <ul>
     <li><?php echo $this->Html->link('Editar Item', array(
             'controller' => 'licitation_items',
             'action' => 'edit',
-            $licitation['Licitation']['id'],
             $item['LicitationItem']['id']
         ));
         ?></li>
     <li><?php echo $this->Form->postLink('Deletar Item', array(
             'controller' => 'licitation_items',
             'action' => 'delete',
-            $licitation['Licitation']['id'],
+            $item['Licitation']['id'],
             $item['LicitationItem']['id']
         ), array('confirm' => 'Você tem certeza?'));
         ?></li>
-    <li>Licitação: <?php echo $this->Html->link($licitation['Licitation']['name'], array(
+    <li>Licitação: <?php echo $this->Html->link($item['Licitation']['name'], array(
             'controller' => 'licitations',
             'action' => 'view',
-            $licitation['Licitation']['id']
+            $item['Licitation']['id']
         ));
         ?></li>
     <li>Quantidade: <?php echo $item['LicitationItem']['quantity']; ?></li>
