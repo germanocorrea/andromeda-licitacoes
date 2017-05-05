@@ -8,6 +8,7 @@ echo $this->Html->link('Adicionar Item', array(
 ));
 ?>
 
+<?php if (isset($items)): ?>
 <table>
     <thead>
         <tr>
@@ -33,3 +34,4 @@ echo $this->Html->link('Adicionar Item', array(
         <?php endforeach; ?>
     </tbody>
 </table>
+<?php endif;
