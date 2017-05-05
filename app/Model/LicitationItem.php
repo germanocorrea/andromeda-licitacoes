@@ -12,7 +12,8 @@ class LicitationItem extends AppModel
     public $belongsTo = array(
         'Licitation' => array(
             'className' => 'Licitation',
-            'dependent' => true
+            'dependent' => true,
+            'exclusive' => true
         )
     );
 }
