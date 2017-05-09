@@ -10,16 +10,30 @@ class UsersController extends AppController
 {
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('logout', 'add'); // TODO: remover o add depois que houver user admin padrão
+        $this->Auth->allow('logout', 'login');
     }
 
     public function login() {
+        if ($this->Auth->user('id') != null)
+            $this->redirect($this->Auth->redirect());
         if ($this->request->isPost())
             if ($this->Auth->login()) {
                 $this->redirect($this->Auth->redirect());
             } else {
                 $this->Flash->error(__('Nome de usuário ou senha inválidos'));
             }
+        if ($this->User->find('all') == null)
+        {
+            $this->request->data = array(
+                'cpf_cnpj' => '000.000.000-00',
+                'email' => 'admin@localhost.com',
+                'name' => 'Administrador',
+                'password' => 'admin',
+                'address' => 'n.a.',
+                'role' => 'gerente',
+            );
+            $this->User->save($this->request->data);
+        }
     }
 
     public function logout() {
