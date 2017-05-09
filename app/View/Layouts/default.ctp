@@ -36,6 +36,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link('Andrômeda Licitações', '/');?></h1>
+            <?php if (AuthComponent::user('id') != null)
+                echo $this->Html->link('Logout', array(
+                    'controller' => 'users',
+                    'action' => 'logout'
+                )
+            ); ?>
 		</div>
 		<div id="content">
 
