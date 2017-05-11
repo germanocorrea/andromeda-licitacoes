@@ -742,3 +742,7 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+#user-menu a {
+	padding: 0.5em;
+}

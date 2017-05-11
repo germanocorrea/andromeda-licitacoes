@@ -35,13 +35,29 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
+            <div id="user-menu" style="float: right; display: inline-block;">
+                <?php if (AuthComponent::user('id') != null)
+                {
+                    echo 'Bem vindo(a), ' . AuthComponent::user('name') . '!';
+
+                    echo $this->Html->link('Licitações', array(
+                        'controller' => 'licitations',
+                        'action' => 'index'
+                    ));
+
+                    if (AuthComponent::user('role') == 'gerente' || AuthComponent::user('role') == 'funcionario')
+                        echo $this->Html->link('Usuários', array(
+                            'controller' => 'users',
+                            'action' => 'index'
+                        ));
+
+                    echo $this->Html->link('Logout', array(
+                        'controller' => 'users',
+                        'action' => 'logout'
+                    ));
+                } ?>
+            </div>
 			<h1><?php echo $this->Html->link('Andrômeda Licitações', '/');?></h1>
-            <?php if (AuthComponent::user('id') != null)
-                echo $this->Html->link('Logout', array(
-                    'controller' => 'users',
-                    'action' => 'logout'
-                )
-            ); ?>
 		</div>
 		<div id="content">
 
@@ -58,6 +74,5 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			?>
 		</div>
 	</div>
-	<?php // echo $this->element('sql_dump'); ?>
 </body>
 </html>
