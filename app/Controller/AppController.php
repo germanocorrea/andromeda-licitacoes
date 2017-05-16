@@ -31,6 +31,9 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+    public $helpers = array('Html', 'Form', 'Session');
+
     public $components = array(
 //        TODO: remover flash de outras controladoras
         'DebugKit.Toolbar',
@@ -43,7 +46,60 @@ class AppController extends Controller {
                     'fields' => array('username' => 'cpf_cnpj')
                 )
             ),
-//            'authorize' => 'Controller'
+            'authorize' => array('Controller'),
         )
     );
+
+    protected $dontAllow = array(
+        'gerente' => array(
+            'ProposalsController' => array(
+                'add',
+                'edit'
+            )
+        ),
+        'funcionário' => array(
+            'ProposalsController' => array(
+                'add',
+                'edit',
+                'delete'
+            ),
+            'LicitationsController' => array(
+                'compare',
+                'delete'
+            ),
+            'LicitationItemsController' => array(
+                'delete'
+            ),
+            'UsersController' => array(
+                'delete'
+            )
+        ),
+        'fornecedor' => array(
+            'LicitationsController' => array(
+                'compare',
+                'add',
+                'edit',
+                'delete'
+            ),
+            'LicitationItemsController' => array(
+                'add',
+                'edit',
+                'delete'
+            ),
+            'UsersController' => array(
+                'add',
+                'delete'
+            )
+        )
+    );
+
+    public function isAuthorized($user = null)
+    {
+        if (isset($this->dontAllow[$user['role']][static::class]))
+            foreach ($this->dontAllow[$user['role']][static::class] as $action)
+            {
+                if ($action == $this->action) return false;
+            }
+        return true;
+    }
 }
