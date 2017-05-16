@@ -26,6 +26,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css');
+
+        echo $this->Html->script('https://code.jquery.com/jquery-3.2.1.min.js');
+		echo $this->Html->script('//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

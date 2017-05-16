@@ -10,7 +10,7 @@ if (AuthComponent::user('role') != 'fornecedor')
 ?>
 
 <?php if (isset($items)): ?>
-<table>
+<table id="licitacoes">
     <thead>
         <tr>
             <th>Nome</th>
@@ -35,4 +35,9 @@ if (AuthComponent::user('role') != 'fornecedor')
         <?php endforeach; ?>
     </tbody>
 </table>
+<script>
+    $(document).ready(function(){
+        $('#licitacoes').DataTable();
+    });
+</script>
 <?php endif;

@@ -15,7 +15,7 @@
     ), array('confirm' => 'Você tem certeza?')); ?></li>
     <?php endif; ?>
 </ul>
-<table>
+<table id="proposal">
     <thead>
     <tr>
         <th>Item</th>
@@ -36,3 +36,9 @@
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<script>
+    $(document).ready(function(){
+        $('#proposal').DataTable();
+    });
+</script>

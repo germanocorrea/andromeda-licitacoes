@@ -8,7 +8,7 @@
 ?>
 
 <?php if (isset($licitations)): ?>
-<table>
+<table id="licitacoes">
     <thead>
         <tr>
             <th>Nome</th>
@@ -32,4 +32,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<script>
+    $(document).ready(function(){
+        $('#licitacoes').DataTable();
+    });
+</script>
 <?php endif; ?>

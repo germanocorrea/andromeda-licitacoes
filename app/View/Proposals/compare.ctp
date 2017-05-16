@@ -40,3 +40,9 @@
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<script>
+    $(document).ready(function(){
+        $('#propostas').DataTable();
+    });
+</script>
