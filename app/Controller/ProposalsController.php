@@ -106,4 +106,35 @@ class ProposalsController extends AppController
             }
         }
     }
+
+    public function compare($licitation_id)
+    {
+        $data = $this->Proposal->find('all', array(
+            'conditions' => array(
+                'licitation_id' => $licitation_id
+            )
+        ));
+
+        $items = $this->Proposal->Licitation->LicitationItem->find('all', array(
+            'conditions' => array(
+                'licitation_id' => $licitation_id
+            )
+        ));
+
+        foreach ($data as $p => $proposal)
+        {
+            foreach ($proposal['ProposalItem'] as $pi => $prop_item)
+            {
+                foreach ($items as $i => $item)
+                {
+                    if ($prop_item['licitation_item_id'] == $item['LicitationItem']['id'])
+                        $data[$p]['ProposalItem'][$pi]['LicitationItem'] = $item['LicitationItem'];
+                }
+            }
+        }
+
+        if (!empty($data)) $this->set('data', $data);
+
+        if (!empty($items)) $this->set('items', $items);
+    }
 }

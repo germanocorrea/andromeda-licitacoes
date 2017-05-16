@@ -57,14 +57,6 @@ class LicitationsController extends AppController
         }
     }
 
-    public function search()
-    {
-        if ($this->request->is('get'))
-        {
-            // TODO: search
-        }
-    }
-
     public function view($id = null)
     {
         if ($id == null) $this->redirect(array('action' => 'index'));
@@ -114,10 +106,5 @@ class LicitationsController extends AppController
                     $this->Flash->default($error[0]);
             }
         }
-    }
-
-    public function compare($id)
-    {
-        // TODO: controladora de propostas
     }
 }
