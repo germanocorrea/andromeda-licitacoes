@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: ggcorrea
- * Date: 15/05/17
- * Time: 08:49
- */
+
 class PropostalItem extends AppModel
 {
     public $actAs = array('Containable');

@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: CTA-ARQUIMEDES-01
- * Date: 02/05/2017
- * Time: 11:14
- */
+
 class Licitation extends AppModel
 {
     public $validate = array(

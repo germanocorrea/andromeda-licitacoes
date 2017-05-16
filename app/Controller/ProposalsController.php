@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: ggcorrea
- * Date: 11/05/17
- * Time: 16:34
- */
+
 class ProposalsController extends AppController
 {
     public $helpers = array('Html', 'Form', 'Flash', 'Time');

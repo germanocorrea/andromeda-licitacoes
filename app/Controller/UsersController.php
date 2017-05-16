@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: CTA-ARQUIMEDES-01
- * Date: 04/05/2017
- * Time: 10:39
- */
+
 class UsersController extends AppController
 {
     public $helpers = array('Flash', 'Form', 'Html', 'Js');

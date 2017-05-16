@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: CTA-ARQUIMEDES-01
- * Date: 04/05/2017
- * Time: 10:40
- */
+
 class User extends AppModel
 {
     public $validate = array(
