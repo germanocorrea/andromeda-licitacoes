@@ -48,4 +48,19 @@ class Licitation extends AppModel
             'className' => 'Proposal',
         )
     );
+
+    public function changeState($licitation_id, $state)
+    {
+        $licitation = $this->findById($licitation_id);
+        $licitation['Licitation']['state'] = $state;
+        try
+        {
+            $this->saveAll($licitation);
+            return true;
+        }
+        catch (Exception $e)
+        {
+            return $e;
+        }
+    }
 }

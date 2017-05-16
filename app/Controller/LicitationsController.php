@@ -1,9 +1,10 @@
 <?php
 
+App::uses('CakeTime', 'Utility');
+
 class LicitationsController extends AppController
 {
     public $helpers = array('Html', 'Form', 'Flash', 'Time');
-    public $components = array('Flash');
 
     public function index()
     {
@@ -11,7 +12,49 @@ class LicitationsController extends AppController
         if ($licitations == null)
             $this->Flash->default('Não há licitações cadastradas');
         else
+        {
+            foreach ($licitations as $l => $licitation)
+            {
+                if (
+                    (CakeTime::isToday($licitation['Licitation']['open_date'], 'America/Sao_Paulo') ||
+                        CakeTime::isPast($licitation['Licitation']['open_date'], 'America/Sao_Paulo')) &&
+                    $licitation['Licitation']['state'] == 'CRIADA'
+                )
+                {
+                    $licitation['Licitation']['state'] = 'ABERTA';
+                    $licitations[$l]['Licitation']['state'] = 'ABERTA';
+
+                    $this->Licitation->id = $licitation['Licitation']['id'];
+
+                    if ($this->Licitation->saveField('state', 'ABERTA'))
+                    {
+                        $this->Licitation->clear();
+                        $this->Flash->success('Licitação ' . $licitation['Licitation']['name'] . ' alterou seu estado com sucesso');
+                    }
+                    else $this->Flash->default('Ocorreu um erro ao atualizar o estado das licitação ' . $licitation['Licitation']['name']);
+                }
+
+                if (
+                    (CakeTime::isToday($licitation['Licitation']['end_date'], 'America/Sao_Paulo') ||
+                        CakeTime::isPast($licitation['Licitation']['end_date'], 'America/Sao_Paulo')) &&
+                    $licitation['Licitation']['state'] == 'ABERTA'
+                )
+                {
+                    $licitation['Licitation']['state'] = 'FINALIZADA';
+                    $licitations[$l]['Licitation']['state'] = 'FINALIZADA';
+
+                    $this->Licitation->id = $licitation['Licitation']['id'];
+
+                    if ($this->Licitation->saveField('state', 'FINALIZADA'))
+                    {
+                        $this->Licitation->clear();
+                        $this->Flash->success('Licitação ' . $licitation['Licitation']['name'] . ' alterou seus estado com sucesso');
+                    }
+                    else $this->Flash->default('Ocorreu um erro ao atualizar o estado da licitação ' . $licitation['Licitation']['name']);
+                }
+            }
             $this->set('licitations', $licitations);
+        }
     }
 
     public function search()
