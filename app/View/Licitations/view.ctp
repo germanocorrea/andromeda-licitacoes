@@ -14,7 +14,12 @@
             'controller' => 'licitations',
             'action' => 'edit',
             $licitation['Licitation']['id']
-        ));?></li>
+    ));?></li>
+    <li><?php echo $this->Html->link('Propostas da Licitação', array(
+            'controller' => 'proposals',
+            'action' => 'all',
+            $licitation['Licitation']['id']
+    ));?></li>
     <li><?php echo $this->Form->postLink(
         'Deletar',
         array('action' => 'delete', $licitation['Licitation']['id']),

@@ -1,25 +1,21 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: CTA-ARQUIMEDES-01
- * Date: 03/05/2017
- * Time: 10:36
- */
-class LicitationItem extends AppModel
+class Proposal extends Model
 {
-//    TODO: validações de itens
     public $belongsTo = array(
         'Licitation' => array(
             'className' => 'Licitation',
             'dependent' => true,
             'exclusive' => true
+        ),
+        'User' => array(
+            'className' => 'User'
         )
     );
 
     public $hasMany = array(
         'ProposalItem' => array(
-            'className' => 'ProposalItem'
+            'className' => 'ProposalItem',
         )
     );
 }

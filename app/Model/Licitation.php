@@ -43,6 +43,9 @@ class Licitation extends AppModel
     public $hasMany = array(
         'LicitationItem' => array(
             'className' => 'LicitationItem',
+        ),
+        'Proposal' => array(
+            'className' => 'Proposal',
         )
     );
 }
