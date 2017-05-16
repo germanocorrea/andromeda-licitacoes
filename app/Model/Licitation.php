@@ -34,7 +34,7 @@ class Licitation extends AppModel
         ),
         'state' => array(
             'stateRule' => array(
-                'rule' => array('equalTo', 'CRIADA'),
+                'rule' => array('inList', array('CRIADA', 'ABERTA', 'FINALIZADA', 'HOMOLOGADA')),
                 'message' => 'Formato de estado inválido'
             )
         )

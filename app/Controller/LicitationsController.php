@@ -77,6 +77,10 @@ class LicitationsController extends AppController
                 $this->Flash->success('Licitação Salva');
                 $this->redirect(array('action' => 'index'));
             }
+            else
+            {
+                $this->Flash->default($this->Licitation->validationErrors);
+            }
         }
     }
 
