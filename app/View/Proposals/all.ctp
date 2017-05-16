@@ -22,7 +22,9 @@
     <br>
     <ul>
     <?php foreach ($proposals as $proposal): ?>
-        <li><?php echo $this->Html->link('Proposta Nº ' .
+        <li><?php if ($proposal['Proposal']['choosed'] != null && $proposal['Proposal']['choosed'] == true)
+            echo '<b>PROPOSTA ESCOLHIDA:</b> ';
+        echo $this->Html->link('Proposta Nº ' .
             $proposal['Proposal']['id'] . ' de ' .
             $proposal['User']['name'], array(
                 'action' => 'view',

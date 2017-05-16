@@ -15,6 +15,7 @@
                     ?> (total)</th>
             <?php endforeach; ?>
             <th>Preço Final Total</th>
+            <th>Operações</th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +37,11 @@
                     $total += $prop['unity_value'] * $prop['LicitationItem']['quantity'];
                 echo $total
                 ?></td>
+            <td><?php echo $this->Form->postLink('Escolher proposta', array(
+                    'controller' => 'proposals',
+                    'action' => 'choose',
+                    $proposal['Proposal']['id']
+                ), array('confirm' => 'Você tem certeza?')) ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>

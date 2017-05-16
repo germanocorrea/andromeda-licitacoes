@@ -137,4 +137,20 @@ class ProposalsController extends AppController
 
         if (!empty($items)) $this->set('items', $items);
     }
+    public function choose($id)
+    {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        $this->Proposal->id = $id;
+        if ($this->Proposal->saveField('choosed', true))
+        {
+            $this->Proposal->Licitation->id = $this->Proposal->field('licitation_id');
+            if ($this->Proposal->Licitation->saveField('state', 'HOMOLOGADA'))
+            {
+                $this->Flash->success('Licitação Homologada com sucesso!');
+                $this->redirect('/licitations/view/' . $this->Proposal->Licitation->field('id'));
+            }
+        }
+    }
 }
