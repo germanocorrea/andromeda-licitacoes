@@ -2,16 +2,18 @@
 <ul>
     <li><b>Autor:</b> <?php echo $proposal['User']['name']; ?></li>
     <li><b>Licitação:</b> <?php echo $proposal['Licitation']['name']; ?></li>
+    <?php if (AuthComponent::user('role') == 'fornecedor' && AuthComponent::user('id') == $proposal['Proposal']['user_id']): ?>
     <li><?php echo $this->Html->link('Editar', array(
             'action' => 'edit',
             $proposal['Proposal']['id'],
             $proposal['Licitation']['id']
-        )); ?></li>
+    )); ?></li>
     <li><?php echo $this->Form->postLink('Deletar', array(
             'action' => 'delete',
             $proposal['Proposal']['id'],
             $proposal['Licitation']['id']
-        ), array('confirm' => 'Você tem certeza?')); ?></li>
+    ), array('confirm' => 'Você tem certeza?')); ?></li>
+    <?php endif; ?>
 </ul>
 <table>
     <thead>

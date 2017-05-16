@@ -15,8 +15,15 @@
 
         echo $this->Form->input('email');
 
+        $user_roles = array(
+            'funcionario' => 'Funcionário',
+            'fornecedor' => 'Fornecedor'
+        );
+        if (AuthComponent::user('role') == 'gerente')
+            $user_roles['gerente'] = 'Gerente';
+
         echo $this->Form->input('role', array(
-            'options' => array('gerente' => 'Gerente', 'funcionario' => 'Funcionário', 'fornecedor' => 'Fornecedor')
+            'options' => $user_roles
         ));
         ?>
     </fieldset>

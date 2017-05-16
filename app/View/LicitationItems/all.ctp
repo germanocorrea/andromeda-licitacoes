@@ -1,11 +1,12 @@
 <h1>Itens da Licitação</h1>
 
 <?php
-echo $this->Html->link('Adicionar Item', array(
-    'controller' => 'licitation_items',
-    'action' => 'add',
-    $licitation_id
-));
+if (AuthComponent::user('role') != 'fornecedor')
+    echo $this->Html->link('Adicionar Item', array(
+        'controller' => 'licitation_items',
+        'action' => 'add',
+        $licitation_id
+    ));
 ?>
 
 <?php if (isset($items)): ?>

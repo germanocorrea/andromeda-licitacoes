@@ -1,4 +1,5 @@
-<?php echo $this->Html->link(
+<?php if (AuthComponent::user('role') == 'fornecedor')
+echo $this->Html->link(
         'Adicionar Proposta',
         array(
             'controller' => 'proposals',

@@ -1,6 +1,7 @@
 <h1>Usuários Cadastrados</h1>
 <?php
-echo $this->Html->link('Adicionar Usuário', array(
+if (AuthComponent::user('role') != 'fornecedor')
+    echo $this->Html->link('Adicionar Usuário', array(
     'action' => 'add'
 ));
 ?>

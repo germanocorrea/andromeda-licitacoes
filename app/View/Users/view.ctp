@@ -9,7 +9,8 @@
     <li><b>Endereço</b>: <?php echo $user['User']['address']; ?></li>
     <li><b>Tipo de Usuário</b>: <?php echo ucfirst($user['User']['role']); ?></li>
 </ul>
-
+<?php if (AuthComponent::user('role') == 'gerente' || AuthComponent::user('id') == $user['User']['id']): ?>
+<br>
 <ul>
     <li><?php echo $this->Html->link('Editar', array('action' => 'edit', $user['User']['id'])) ?></li>
     <li><?php echo $this->Form->postLink('Deletar', array(
@@ -17,3 +18,4 @@
         ), array('confirm' => 'Você tem certeza?'))
     ?></li>
 </ul>
+<?php endif; ?>

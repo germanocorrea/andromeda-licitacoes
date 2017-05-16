@@ -1,9 +1,11 @@
 <h1>Licitações Cadastradas</h1>
 
-<?php echo $this->Html->link('Adicionar Licitação', array(
-    'controller' => 'licitations',
-    'action' => 'add'
-));?>
+<?php if (AuthComponent::user('role') != 'fornecedor')
+    echo $this->Html->link('Adicionar Licitação', array(
+        'controller' => 'licitations',
+        'action' => 'add'
+    ));
+?>
 
 <?php if (isset($licitations)): ?>
 <table>
