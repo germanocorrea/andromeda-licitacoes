@@ -8,6 +8,8 @@
  */
 class UsersController extends AppController
 {
+    public $helpers = array('Flash', 'Form', 'Html', 'Js');
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('logout', 'login');
