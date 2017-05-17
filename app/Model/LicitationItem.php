@@ -32,7 +32,7 @@ class LicitationItem extends AppModel
                 'message' => 'Quantidade de Itens vazia'
             ),
             'qntyRule2' => array(
-                'rule' => 'number',
+                'rule' => 'naturalNumber',
                 'message' => 'Dados inválidos no campo de quantidade'
             )
         ),
