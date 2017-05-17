@@ -6,7 +6,8 @@ create table licitation_items
   name varchar(255) not null,
   quantity int not null,
   description text not null
-);
+)
+;
 
 create table licitations
 (
@@ -16,7 +17,8 @@ create table licitations
   end_date date not null,
   open_date date not null,
   state varchar(255) not null
-);
+)
+;
 
 create table proposal_items
 (
@@ -25,7 +27,8 @@ create table proposal_items
   unity_value float not null,
   licitation_item_id int not null,
   proposal_id int not null
-);
+)
+;
 
 create table proposals
 (
@@ -34,7 +37,8 @@ create table proposals
   licitation_id int not null,
   user_id int not null,
   choosed tinyint(1) default '0' null
-);
+)
+;
 
 create table users
 (
@@ -45,5 +49,8 @@ create table users
   name varchar(255) not null,
   password varchar(255) not null,
   address varchar(255) null,
-  role varchar(255) not null
-);
+  role varchar(255) not null,
+  constraint users_cpf_cnpj_uindex
+  unique (cpf_cnpj)
+)
+;
