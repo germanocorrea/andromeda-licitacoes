@@ -17,4 +17,10 @@ class PropostalItem extends AppModel
             'exclusive' => true
         ),
     );
+
+    public $validate = array(
+        'unity_value' => array(
+            'rule' => array('decimal', 2)
+        )
+    );
 }

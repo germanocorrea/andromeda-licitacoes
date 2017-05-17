@@ -5,7 +5,8 @@ class Licitation extends AppModel
 {
     public $validate = array(
         'name' => array(
-            'rule' => 'notBlank'
+            'rule' => 'notBlank',
+            'message' => 'Nome da Licitação em branco'
         ),
         'open_date' => array(
             'openRule1' => array(

@@ -4,16 +4,25 @@
     <fieldset>
         <legend><?php echo __('Adicionar Usuário'); ?></legend>
 
-        <?php echo $this->Form->input('name');
+        <?php echo $this->Form->input('name', array(
+                'label' => 'Nome'
+        ));
 
-//        TODO: complementar tudo isso
-        echo $this->Form->input('password');
+        echo $this->Form->input('password', array(
+            'label' => 'Senha'
+        ));
 
-        echo $this->Form->input('cpf_cnpj');
+        echo $this->Form->input('cpf_cnpj', array(
+            'label' => 'CPF/CNPJ'
+        ));
 
-        echo $this->Form->input('address');
+        echo $this->Form->input('address', array(
+            'label' => 'Endereço'
+        ));
 
-        echo $this->Form->input('email');
+        echo $this->Form->input('email', array(
+            'label' => 'Email'
+        ));
 
         $user_roles = array(
             'funcionario' => 'Funcionário',
@@ -23,7 +32,8 @@
             $user_roles['gerente'] = 'Gerente';
 
         echo $this->Form->input('role', array(
-            'options' => $user_roles
+            'options' => $user_roles,
+            'label' => 'Tipo de Usuário'
         ));
         ?>
     </fieldset>
