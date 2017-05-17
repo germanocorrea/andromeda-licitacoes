@@ -18,7 +18,7 @@ O processo de instalação é o mesmo do CakePHP:
 - Copie o arquivo `databse.php.default` como `databse.php` e edite seu conteúdo apropriadamente
 - Certifique-se de que haja as permissões necessárias nos arquivos e diretórios para leitura pelo servidor web
 - Certifique-se que o diretório app/temp e todos seus subdiretórios podem ser escritos tanto pelo servidor quanto pelo usuário
-- Rode o comando `composer install` para instalar as dependências necessárias.
+- Rode o comando `composer install` para instalar as dependências necessárias (utilize o parâmetro `--no-dev` para instalar as dependências no servidor de produção).
 
 ## Contribua
 
