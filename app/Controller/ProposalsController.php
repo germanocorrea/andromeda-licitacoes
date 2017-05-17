@@ -13,7 +13,10 @@ class ProposalsController extends AppController
             'conditions' => array('licitation_id' => $licitation_id)
         ));
         if ($proposals == null)
+        {
             $this->Flash->default('Não há propostas cadastradas para esta licitação ou a mesma não está aberta');
+            $this->set('proposals', $this->Proposal->Licitation->findById($licitation_id));
+        }
         else
             $this->set('proposals', $proposals);
     }
