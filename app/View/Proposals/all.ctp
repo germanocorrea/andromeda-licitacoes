@@ -1,14 +1,14 @@
-<?php if (AuthComponent::user('role') == 'fornecedor')
-    if ($proposals[0]['Licitation']['state'] == 'ABERTA')
-        echo $this->Html->link(
+<?php if (isset($proposals)): ?>
+    <?php if (AuthComponent::user('role') == 'fornecedor')
+        if ($proposals[0]['Licitation']['state'] == 'ABERTA')
+            echo $this->Html->link(
                 'Adicionar Proposta',
                 array(
                     'controller' => 'proposals',
                     'action' => 'add',
                     $licitation_id
                 ));
-?>
-<?php if (isset($proposals)): ?>
+    ?>
     <h1>Propostas da Licitação <?php echo $proposals[0]['Licitation']['name']; ?></h1>
     <?php
     if (AuthComponent::user('role') == 'gerente')
