@@ -23,10 +23,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php echo $this->Html->charset(); ?>
 	<title>Andrômeda Licitações: <?php echo $this->fetch('title'); ?></title>
 	<?php
-		echo $this->Html->meta('icon');
-
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css');
+		echo $this->Html->css('https://code.cdn.mozilla.net/fonts/fira.css');
 
         echo $this->Html->script('https://code.jquery.com/jquery-3.2.1.min.js');
 		echo $this->Html->script('//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js');
@@ -70,12 +69,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
 		</div>
 	</div>
 </body>
