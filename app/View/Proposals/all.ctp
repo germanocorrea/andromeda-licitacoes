@@ -1,7 +1,8 @@
-<?php if (AuthComponent::user('role') == 'fornecedor')
-    if (isset($proposals[0]))
-        $state = $proposals[0]['Licitation']['state'];
-    else $state = $proposals['Licitation']['state'];
+<?php
+if (isset($proposals[0]))
+    $state = $proposals[0]['Licitation']['state'];
+else $state = $proposals['Licitation']['state'];
+if (AuthComponent::user('role') == 'fornecedor')
     if ($state == 'ABERTA')
         echo $this->Html->link(
             'Adicionar Proposta',
