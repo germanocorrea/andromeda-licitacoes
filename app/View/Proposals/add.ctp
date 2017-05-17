@@ -25,7 +25,8 @@ echo $this->Form->input('Proposal.user_id', array(
             ?></legend>
         <?php echo $this->Form->input('ProposalItem.'. $i .'.unity_value', array(
             'label' => 'Valor Unitário de ' . $item['name'] . '(em Reais)',
-            'type' => 'number'
+            'type' => 'number',
+            'step' => '0.01'
         )); ?>
         <?php echo $this->Form->input('ProposalItem.'. $i .'.licitation_item_id', array(
             'value' => $item['id'],

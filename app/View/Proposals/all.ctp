@@ -11,7 +11,7 @@
                 $licitation_id
             ));
 ?>
-<?php if (isset($proposals) && !empty($proposals['Proposal'])): ?>
+<?php if (isset($proposals) && !empty($proposals[0])): ?>
     <h1>Propostas da Licitação <?php echo $proposals[0]['Licitation']['name']; ?></h1>
     <?php
     if (AuthComponent::user('role') == 'gerente')
