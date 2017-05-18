@@ -31,7 +31,7 @@ Depois que uma licitação muda o estado para FECHADA, um gerente pode comparar,
 ## Instalação
 O processo de instalação é o mesmo do CakePHP:
 - Certifique-se que seu sistema corresponde aos requisitos:
-    - PHP 5.6 ou superior (PHP 7 recomendável)
+    - PHP 7.0 ou superior
     - PDO habilitada para o PHP
     - Mcrypt habilitada para o PHP
     - mod_rewrite esteja habilitado no servidor web
