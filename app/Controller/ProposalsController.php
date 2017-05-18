@@ -81,7 +81,7 @@ class ProposalsController extends AppController
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
-        if ($this->Proposal->deleteAll($id, true)) {
+        if ($this->Proposal->delete($id, true)) {
             $this->Flash->success('A proposta nº ' . $id . ' foi deletada.');
             $this->redirect(array('action' => 'all', $licitation_id));
         }
