@@ -2,7 +2,9 @@
 <ul>
     <li><b>Autor:</b> <?php echo $proposal['User']['name']; ?></li>
     <li><b>Licitação:</b> <?php echo $proposal['Licitation']['name']; ?></li>
-    <?php if (AuthComponent::user('role') == 'fornecedor' && AuthComponent::user('id') == $proposal['Proposal']['user_id']): ?>
+    <?php if (AuthComponent::user('role') == 'fornecedor' && AuthComponent::user('id') == $proposal['Proposal']['user_id'] &&
+        (   $proposal['Licitation']['state'] != 'FECHADA' &&
+            $proposal['Licitation']['state'] != 'HOMOLOGADA')): ?>
     <li><?php echo $this->Html->link('Editar', array(
             'action' => 'edit',
             $proposal['Proposal']['id'],

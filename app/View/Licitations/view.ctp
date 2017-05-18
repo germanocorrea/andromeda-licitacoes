@@ -10,7 +10,10 @@
         $licitation['Licitation']['id'],
 
     ));?></li>
-    <?php if (AuthComponent::user('role') != 'fornecedor'): ?>
+    <?php if (AuthComponent::user('role') != 'fornecedor' &&
+        ($licitation['Licitation']['state'] != 'ABERTA' &&
+            $licitation['Licitation']['state'] != 'FECHADA' &&
+            $licitation['Licitation']['state'] != 'HOMOLOGADA')): ?>
     <li><?php echo $this->Html->link('Editar Licitação', array(
             'controller' => 'licitations',
             'action' => 'edit',
