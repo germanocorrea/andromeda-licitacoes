@@ -22,7 +22,7 @@ echo $this->Form->input('Proposal.user_id', array(
                 ), array('target' => '_blank'));
             ?></legend>
         <?php echo $this->Form->input('ProposalItem.'. $i .'.unity_value', array(
-            'label' => 'Valor Unitário de ' . $item['name'] . '(em Reais)',
+            'label' => 'Valor Unitário de ' . $item['name'] . ' (em Reais)',
             'type' => 'number'
         )); ?>
         <?php echo $this->Form->input('ProposalItem.'. $i .'.licitation_item_id', array(
