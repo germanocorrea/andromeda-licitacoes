@@ -91,7 +91,10 @@ class UsersController extends AppController
             $this->Flash->success(__('Usuário deletado'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Flash->error(__('Usuário não foi deletado'));
-        $this->redirect(array('action' => 'index'));
+        else
+        {
+            $this->Flash->error(__('Usuário não foi deletado'));
+            $this->redirect(array('action' => 'index'));
+        }
     }
 }

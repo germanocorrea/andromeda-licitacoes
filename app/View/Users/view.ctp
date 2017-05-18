@@ -14,7 +14,7 @@
 <ul>
     <li><?php echo $this->Html->link('Editar', array('action' => 'edit', $user['User']['id'])) ?></li>
     <li><?php echo $this->Form->postLink('Deletar', array(
-        'action' => 'edit', $user['User']['id']
+        'action' => 'delete', $user['User']['id']
         ), array('confirm' => 'Você tem certeza?'))
     ?></li>
 </ul>
